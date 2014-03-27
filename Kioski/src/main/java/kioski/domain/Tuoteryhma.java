@@ -32,4 +32,24 @@ public class Tuoteryhma extends Haettava {
         this.tuotteet = tuotteet;
     }
 
+    @Override
+    String getNimi() {
+        return nimi;
+    }
+
+    @Override
+    int getTunnus() {
+        return tunnus;
+    }
+
+    @Override
+    void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -9,9 +9,9 @@
 30 min - määrittelyvaiheen luokkakaavio
 
 ### 25.3.2014
-1,5 h - vanhojen kertausta ja koodauksen aloittaminen
+2 h - vanhojen kertausta ja suunnittelua
 
 ### 27.3.2014
-3h - koodausta
+4 h - koodausta
 
-XXX - tarkennettu luokkakaavio
+45 min - tarkennettu luokkakaavio

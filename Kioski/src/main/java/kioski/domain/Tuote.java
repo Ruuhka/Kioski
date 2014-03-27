@@ -9,11 +9,16 @@ public class Tuote extends Haettava{
     private int varastosaldo;
     private StringBuilder kuvaus;
 
-    public Tuote(int tunnus, String nimi, double hinta, StringBuilder kuvaus) {
+    public Tuote(int tunnus, String nimi, double hinta, StringBuilder kuvaus, int saldo) {
         this.tunnus = tunnus;
         this.nimi = nimi;
         this.hinta = hinta;
         this.kuvaus = kuvaus;
+        this.varastosaldo = saldo;
+    }
+    
+    public Tuote(int tunnus, String nimi, double hinta, StringBuilder kuvaus) {
+        this(tunnus, nimi, hinta, kuvaus, 0);
     }
 
     public double getHinta() {
@@ -35,4 +40,24 @@ public class Tuote extends Haettava{
     public void setTunnus(int tunnus) {
         this.tunnus = tunnus;
     }    
+
+    @Override
+    String getNimi() {
+        return this.nimi;
+    }
+
+    @Override
+    int getTunnus() {
+        return this.tunnus;
+    }
+
+    @Override
+    void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

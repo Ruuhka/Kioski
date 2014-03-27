@@ -1,23 +1,14 @@
 
 package kioski.domain;
 
-public class Haettava {
+public abstract class Haettava implements Comparable {
     private int tunnus;
     private String nimi;
 
-    public String getNimi() {
-        return nimi;
-    }
+    abstract String getNimi();
 
-    public int getTunnus() {
-        return tunnus;
-    }
+    abstract int getTunnus();
 
-    public void setNimi(String nimi) {
-        this.nimi = nimi;
-    }
-     
-    public int compareTo(Haettava haettava) {
-        return this.tunnus - haettava.tunnus;
-    }
+    abstract void setNimi(String nimi);
+
 }
