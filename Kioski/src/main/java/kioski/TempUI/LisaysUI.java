@@ -25,7 +25,7 @@ public class LisaysUI {
          System.out.println("Hinta:");
          double hinta = lueDesimaaliluku();
          System.out.println("");
-         StringBuilder kuvaus = pyydaKuvaus();
+         String kuvaus = pyydaKuvaus();
          logiikka.lisaaTuote(tunnus, nimi, hinta, kuvaus);
          //Tähän vielä tuoteryhmän valinta juuri lisätylle tuotteelle
     }
@@ -38,17 +38,17 @@ public class LisaysUI {
         System.out.println("Tunnus:");
         int tunnus = lueKokonaisluku();
         System.out.println("");
-        StringBuilder kuvaus = pyydaKuvaus();
+        String kuvaus = pyydaKuvaus();
         logiikka.lisaaTuoteryhma(tunnus, nimi, kuvaus);
     }
     
-    public StringBuilder pyydaKuvaus() {
+    public String pyydaKuvaus() {
         System.out.println("Kuvaus (paina enteriä rivien välissä ja kun olet valmis):");
         StringBuilder kuvaus = new StringBuilder();
         while (!lukija.nextLine().equals("")) {
-             kuvaus.append(lukija.nextLine());
+            kuvaus.append(lukija.nextLine());
         }
-        return kuvaus;
+        return kuvaus.toString();
     }
     
     private int lueKokonaisluku() {
@@ -57,7 +57,7 @@ public class LisaysUI {
                 int luku = Integer.parseInt(lukija.nextLine());
                 return luku;
             } catch (Exception e) {
-                System.out.println("Et syöttänyt kokonaislukua. Tietue vaatii kokonaislukuarvon.");
+                System.out.println("Et syöttänyt kokonaislukua. Vaaditaan kokonaislukuarvo.");
             }
         }
     }

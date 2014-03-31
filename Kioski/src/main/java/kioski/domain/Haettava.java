@@ -1,14 +1,16 @@
 
 package kioski.domain;
 
-public abstract class Haettava implements Comparable {
+public abstract class Haettava implements Comparable<Haettava> {
     private int tunnus;
     private String nimi;
 
-    abstract String getNimi();
+    abstract public String getNimi();
 
-    abstract int getTunnus();
+    abstract public int getTunnus();
 
-    abstract void setNimi(String nimi);
+    abstract public void setNimi(String nimi);
+    
+    abstract public void setTunnus(int tunnus);
 
 }

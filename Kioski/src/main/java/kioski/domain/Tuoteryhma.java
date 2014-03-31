@@ -7,9 +7,9 @@ public class Tuoteryhma extends Haettava {
     private int tunnus;
     private String nimi;
     private ArrayList<Tuote> tuotteet;
-    private StringBuilder kuvaus;
+    private String kuvaus;
     
-    public Tuoteryhma(int tunnus, String nimi, StringBuilder kuvaus) {
+    public Tuoteryhma(int tunnus, String nimi, String kuvaus) {
         this.tunnus = tunnus;
         this.nimi = nimi;
         this.kuvaus = kuvaus;
@@ -20,11 +20,11 @@ public class Tuoteryhma extends Haettava {
         return tuotteet;
     }
 
-    public StringBuilder getKuvaus() {
+    public String getKuvaus() {
         return kuvaus;
     }
     
-    public void setKuvaus(StringBuilder kuvaus) {
+    public void setKuvaus(String kuvaus) {
         this.kuvaus = kuvaus;
     }
     
@@ -33,23 +33,28 @@ public class Tuoteryhma extends Haettava {
     }
 
     @Override
-    String getNimi() {
+    public String getNimi() {
         return nimi;
     }
 
     @Override
-    int getTunnus() {
+    public int getTunnus() {
         return tunnus;
     }
 
     @Override
-    void setNimi(String nimi) {
+    public void setNimi(String nimi) {
         this.nimi = nimi;
     }
 
     @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setTunnus(int tunnus) {
+        this.tunnus = tunnus;
+    }
+
+    @Override
+    public int compareTo(Haettava h) {
+        return this.tunnus - h.getTunnus();
     }
 
 }

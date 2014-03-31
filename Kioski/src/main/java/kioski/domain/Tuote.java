@@ -7,25 +7,33 @@ public class Tuote extends Haettava{
     private String nimi;
     private double hinta;
     private int varastosaldo;
-    private StringBuilder kuvaus;
+    private String kuvaus;
 
-    public Tuote(int tunnus, String nimi, double hinta, StringBuilder kuvaus, int saldo) {
+    public Tuote(int tunnus, String nimi, double hinta, String kuvaus, int saldo) {
         this.tunnus = tunnus;
         this.nimi = nimi;
         this.hinta = hinta;
         this.kuvaus = kuvaus;
-        this.varastosaldo = saldo;
+        if (saldo < 0) {
+            throw new IllegalArgumentException("Varastosaldo ei voi olla negatiivinen. ");
+        } else {
+            this.varastosaldo = saldo;
+        }
     }
     
-    public Tuote(int tunnus, String nimi, double hinta, StringBuilder kuvaus) {
+    public Tuote(int tunnus, String nimi, double hinta, String kuvaus) {
         this(tunnus, nimi, hinta, kuvaus, 0);
+    }
+    
+    public Tuote(int tunnus, String nimi, double hinta) {
+        this(tunnus, nimi, hinta, "", 0);
     }
 
     public double getHinta() {
         return hinta;
     }
 
-    public StringBuilder getKuvaus() {
+    public String getKuvaus() {
         return kuvaus;
     }
 
@@ -33,31 +41,66 @@ public class Tuote extends Haettava{
         this.hinta = hinta;
     }
 
-    public void setKuvaus(StringBuilder kuvaus) {
+    public void setKuvaus(String kuvaus) {
         this.kuvaus = kuvaus;
     }
 
+    public int getVarastosaldo() {
+        return varastosaldo;
+    }
+
+    public void setVarastosaldo(int varastosaldo) {
+        this.varastosaldo = varastosaldo;
+    }
+    
+    public void kasvataSaldoa(int n) {
+        while (n > 0) {
+            kasvataSaldoaYhdella();
+            n--;
+        }
+    }
+    
+    public void kasvataSaldoaYhdella() {
+        this.varastosaldo++;
+    }
+    
+    public void vahennaSaldoa(int n) {
+        while (n > 0) {
+            if (this.varastosaldo <= 0) {
+                break;
+            } else {
+                vahennaSaldoaYhdella();
+                n--;
+            }
+        }
+    }
+    
+    public void vahennaSaldoaYhdella() {
+        this.varastosaldo--;
+    }
+    
+    @Override
     public void setTunnus(int tunnus) {
         this.tunnus = tunnus;
     }    
 
     @Override
-    String getNimi() {
+    public String getNimi() {
         return this.nimi;
     }
 
     @Override
-    int getTunnus() {
+    public int getTunnus() {
         return this.tunnus;
     }
 
     @Override
-    void setNimi(String nimi) {
+    public void setNimi(String nimi) {
         this.nimi = nimi;
     }
 
     @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int compareTo(Haettava h) {
+        return this.tunnus - h.getTunnus();
     }
 }

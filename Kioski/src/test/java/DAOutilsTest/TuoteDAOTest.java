@@ -8,9 +8,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class MuistiTuoteryhmaDAOTest {
+public class TuoteDAOTest {
     
-    public MuistiTuoteryhmaDAOTest() {
+    public TuoteDAOTest() {
     }
     
     @BeforeClass

@@ -1,5 +1,6 @@
 package kioski.domainTest;
 
+import kioski.domain.Tuote;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,17 +21,48 @@ public class TuoteTest {
     public static void tearDownClass() {
     }
     
+    Tuote tuote;
+    
     @Before
     public void setUp() {
+        tuote = new Tuote(11, "Kahvi", 1, "lämmin kupillinen", 30);
     }
     
     @After
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void kasvataSaldoaKasvattaaSaldoaOikein() {
+        tuote.kasvataSaldoa(8);
+        assertEquals(38, tuote.getVarastosaldo());
+    }
+    
+    @Test
+    public void vahennaSaldoaVahentaaOikeanMaaran() {
+        tuote.vahennaSaldoa(4);
+        assertEquals(26, tuote.getVarastosaldo());
+    }
+    
+    @Test
+    public void vahennaSaldoaEiVahennaAlle0() {
+        tuote.vahennaSaldoa(33);
+        assertEquals(0, tuote.getVarastosaldo());
+    }
+    
+    @Test
+    public void konstruktoriEiSalliNegatiivistaSaldoa() {
+        try {
+            tuote = new Tuote(11, "Kahvi", 1, "lämmin kupillinen", -30);
+            assert false;
+        } catch (IllegalArgumentException e) {
+            assert true;
+        }
+    }
+    
+    @Test
+    public void compareToJarjestaaTuotteetTunnuksenMukaanOikeaanJarjestykseen() {
+        Tuote tuote2 = new Tuote(12, "pulla", 2);
+        assertEquals(-1, tuote.compareTo(tuote2));
+    }
 }
