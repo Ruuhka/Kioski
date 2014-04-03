@@ -8,18 +8,26 @@ public class Tuoteryhma extends Haettava {
     private String nimi;
     private ArrayList<Tuote> tuotteet;
     private String kuvaus;
-    
-    public Tuoteryhma(int tunnus, String nimi, String kuvaus) {
+
+    public Tuoteryhma(int tunnus, String nimi, ArrayList<Tuote> tuotteet, String kuvaus) {
         this.tunnus = tunnus;
         this.nimi = nimi;
+        this.tuotteet = tuotteet;
         this.kuvaus = kuvaus;
-        this.tuotteet = new ArrayList<Tuote>();
+    }    
+    
+    public Tuoteryhma(int tunnus, String nimi, String kuvaus) {
+        this(tunnus, nimi, new ArrayList<Tuote>(), kuvaus);
     }
 
-    public ArrayList<Tuote> getTuotteet() {
+    public void lisaaTuote(Tuote tuote) {
+        tuotteet.add(tuote);
+    }
+    
+     public ArrayList<Tuote> getTuotteet() {
         return tuotteet;
     }
-
+     
     public String getKuvaus() {
         return kuvaus;
     }
@@ -56,5 +64,12 @@ public class Tuoteryhma extends Haettava {
     public int compareTo(Haettava h) {
         return this.tunnus - h.getTunnus();
     }
+
+    @Override
+    public String toString() {
+        return tunnus + "§" + nimi + "§" + tuotteet.toString() + "§" + kuvaus;
+    }
+    
+    
 
 }

@@ -1,16 +1,31 @@
 
 package kioski.logiikka;
 
+import DAO.*;
 import java.util.Scanner;
-import kioski.domain.Tuote;
-import kioski.domain.Tuoteryhma;
+import kioski.domain.*;
 
 public class Sovelluslogiikka {
-       
-    public void lisaaTuote(int tunnus, String nimi, double hinta, String kuvaus) {
-        Tuote tuote = new Tuote(tunnus, nimi, hinta, kuvaus);
+    private Lisayslogiikka lisayslogiikka;
+    private Muokkauslogiikka muokkauslogiikka;
+    private Hakulogiikka hakulogiikka;
+    private Ostoskorilogiikka ostoskorilogiikka;
+    private Poistologiikka poistologiikka;
+    private TuoteDAO tuoteDAO;
+    private TuoteryhmaDAO tuoteryhmaDAO;
+
+    public Sovelluslogiikka() {
+        this.tuoteDAO = new MuistiTuoteDAO();
+        this.tuoteryhmaDAO = new MuistiTuoteryhmaDAO();
+        this.lisayslogiikka = new Lisayslogiikka(tuoteDAO, tuoteryhmaDAO);
         
-        System.out.println("lisätty!");
+    }
+    
+    
+    
+       
+    public void lisaaTuote(int tunnus, String nimi, double hinta, String kuvaus, int saldo) {
+        lisayslogiikka.lisaaTuote(tunnus, nimi, hinta, kuvaus, saldo);
     }
     
     public void lisaaTuoteryhma(int tunnus, String nimi, String kuvaus) {

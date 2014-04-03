@@ -103,4 +103,11 @@ public class Tuote extends Haettava{
     public int compareTo(Haettava h) {
         return this.tunnus - h.getTunnus();
     }
+
+    @Override
+    public String toString() {
+        return tunnus + "§" + nimi + "§" + hinta + "§" + varastosaldo + "§" + kuvaus;
+    }
+    
+    
 }

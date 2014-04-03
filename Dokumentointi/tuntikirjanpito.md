@@ -15,3 +15,12 @@
 4 h - koodausta
 
 45 min - tarkennettu luokkakaavio
+
+### 31.3.2014
+2,5 h - koodausta (tallennustoiminnallisuus)
+
+### 2.4.2014
+2 h - koodausta (tallennustoiminnallisuus)
+
+### 3.4.2014
+5 h - koodausta (tallennustoiminnallisuus ja sovelluslogiikka)

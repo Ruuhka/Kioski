@@ -41,6 +41,7 @@
                     <includes>
                         <include>kioski.logiikka/*.class</include>
                         <include>kioski.domain/*.class</include>
+                        <include>kioski.DAO/*.class</include>
                     </includes>
                 </instrumentation>
             </configuration>
@@ -54,10 +55,12 @@
                 <targetClasses>
                     <param>kioski.logiikka.*</param>
                     <param>kioski.domain.*</param>
+                    <param>kioski.DAO.*</param>
                 </targetClasses>
                 <targetTests>
                     <param>kioski.logiikka.*</param>
                     <param>kioski.domain.*</param>
+                    <param>kioski.DAO.*</param>
                 </targetTests>
             </configuration>
         </plugin>

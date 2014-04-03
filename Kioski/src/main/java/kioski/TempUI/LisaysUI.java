@@ -26,8 +26,12 @@ public class LisaysUI {
          double hinta = lueDesimaaliluku();
          System.out.println("");
          String kuvaus = pyydaKuvaus();
-         logiikka.lisaaTuote(tunnus, nimi, hinta, kuvaus);
-         //Tähän vielä tuoteryhmän valinta juuri lisätylle tuotteelle
+         System.out.println("Anna varastosaldo:");
+         System.out.println("");
+         int saldo = lueKokonaisluku();
+         logiikka.lisaaTuote(tunnus, nimi, hinta, kuvaus, saldo);
+         System.out.println("Valitse tuoteryhmä:");
+         
     }
 
     public void komentoLisaaTuoteryhma() {

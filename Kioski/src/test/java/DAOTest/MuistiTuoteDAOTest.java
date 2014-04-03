@@ -1,6 +1,5 @@
 
-
-package DAOutilsTest;
+package DAOTest;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -9,10 +8,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
-public class TuoteCSVKasittelijaTest {
+public class MuistiTuoteDAOTest {
     
-    public TuoteCSVKasittelijaTest() {
+    public MuistiTuoteDAOTest() {
     }
     
     @BeforeClass
